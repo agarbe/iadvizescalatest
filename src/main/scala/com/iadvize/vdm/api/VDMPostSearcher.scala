@@ -25,4 +25,14 @@ object VDMPostSearcher {
       .filter(post => from == None || post.date == from.get || post.date.isAfter(from.get))
       .filter(post => to == None || post.date == to.get || post.date.isBefore(to.get))
   }
+
+  /**
+    * Find a post by its id
+    * @param posts the post collection to search through
+    * @param id the id of the post to search for
+    * @return the post searched for or None
+    */
+  def findById(posts: List[VDMPost], id: Int) = {
+    posts.find(_.id == id)
+  }
 }

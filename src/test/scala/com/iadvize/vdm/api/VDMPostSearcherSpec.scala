@@ -63,4 +63,26 @@ class VDMPostSearcherSpec extends FlatSpec with Matchers {
     assert(filteredPosts.length == 1)
   }
 
+
+  "A post " should "be findable by its id" in {
+
+    //When
+    val post = VDMPostSearcher.findById(posts,1)
+
+    //Then
+    assert(post.get.id == 1)
+  }
+
+
+
+  "The findById method " should "return None when no match is found" in {
+
+    //When
+    val post = VDMPostSearcher.findById(posts,4)
+
+    //Then
+    assert(post == None)
+  }
+
+
 }
