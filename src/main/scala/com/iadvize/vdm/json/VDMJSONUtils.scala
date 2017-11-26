@@ -7,9 +7,9 @@ object VDMJSONUtils {
 
   private implicit val formats = org.json4s.DefaultFormats ++ org.json4s.ext.JodaTimeSerializers.all
 
-  def toJSON(posts: List[VDMPost]): String = write(posts)
+  def toJSON(posts: List[VDMPost]): String = write(("posts",posts))
 
-  def fromJSON(jsonPosts: String): List[VDMPost] = read[List[VDMPost]](jsonPosts)
+  def fromJSON(jsonPosts: String): List[VDMPost] = read[Tuple2[String,List[VDMPost]]](jsonPosts)._2
 
 
 }
