@@ -1,5 +1,8 @@
 package com.example.app
+
+import com.iadvize.vdm.api.VDMPostSearcher
 import com.iadvize.vdm.json.VDMJSONUtils
+import org.joda.time.DateTime
 import org.scalatra._
 
 /**
@@ -7,10 +10,18 @@ import org.scalatra._
   */
 class PostServlet extends ScalatraServlet {
 
-  private val jsonPosts =scala.io.Source.fromFile("vdm_posts.json").mkString
-  private val posts = VDMJSONUtils.fromJSON(jsonPosts)
+  private val posts = VDMJSONUtils.fromJSON(scala.io.Source.fromFile("vdm_posts.json").mkString)
 
+  /**
+    * returns the posts optionally filtered by date and author
+    */
   get("/api/posts") {
-    jsonPosts
+
+    val from = params.get("from").map(DateTime.parse(_))
+    val to = params.get("to").map(DateTime.parse(_))
+    val author = params.get("author")
+
+    VDMJSONUtils.toJSON(VDMPostSearcher.search(posts, author, from, to))
+
   }
 }
