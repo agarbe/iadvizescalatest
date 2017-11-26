@@ -36,8 +36,9 @@ class VDMPostParser {
     }
 
     val (author, date) = parseAuthorAndDate(post)
+    val content = parseContent(post);
 
-    VDMPost(VDMPostIdGenerator.nextId, author, date, parseContent(post))
+    VDMPost(VDMPostIdGenerator.nextId, author, date, content)
 
 
   }
