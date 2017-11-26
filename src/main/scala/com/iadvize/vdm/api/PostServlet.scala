@@ -21,7 +21,7 @@ class PostServlet extends ScalatraServlet {
     val to = params.get("to").map(DateTime.parse(_))
     val author = params.get("author")
 
-    VDMJSONUtils.toJSON(VDMPostSearcher.search(posts, author, from, to))
+    VDMJSONUtils.toJSONWithPostCount(VDMPostSearcher.search(posts, author, from, to))
 
   }
 
