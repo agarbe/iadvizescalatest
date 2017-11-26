@@ -14,7 +14,7 @@ class VDMPageParserSpec extends FlatSpec with Matchers with MockFactory {
     //Given
     val mockVDMPostParser = mock[VDMPostParser]
     val vDMPageParser = new VDMPageParser(mockVDMPostParser)
-    (mockVDMPostParser.parse _).expects(*).anyNumberOfTimes().returning(new VDMPost("author", new DateTime(), "content"))
+    (mockVDMPostParser.parse _).expects(*).anyNumberOfTimes().returning(new VDMPost(1,"author", new DateTime(), "content"))
 
     val mockBrowser = mock[JsoupBrowser]
     vDMPageParser.browser = mockBrowser

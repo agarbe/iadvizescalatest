@@ -10,7 +10,7 @@ class VDMPaginatedParserSpec extends FlatSpec with Matchers with MockFactory {
   "A Paginated Parser with an expected count of 200 posts" should "return exactly 200 posts" in {
 
     //Given
-    val mockVDMPosts = List.fill(26)(new VDMPost("author", new DateTime(), "content"))
+    val mockVDMPosts = List.fill(26)(new VDMPost(1,"author", new DateTime(), "content"))
     val mockVDMPageParser = mock[VDMPageParser]
 
     (mockVDMPageParser.parsePage _).expects(*).repeat(8).returning(mockVDMPosts)

@@ -21,6 +21,7 @@ class VDMPostParserSpec extends FlatSpec with Matchers {
     val vDMPost = vdmPostParser.parse(post)
 
     //Then
+    assert(vDMPost.id == 1)
     assert(vDMPost.author == "Anonyme")
     assert(vDMPost.content == "Aujourd'hui, ma fille de 14 ans se trouve tellement jolie sur son portrait de classe qu'elle m'a dit tout à fait sérieusement : \"Si je me fais enlever, j'espère qu'ils vont montrer cette photo à la télé !\" VDM")
     assert(vDMPost.date == DateTime.parse("2017-11-25T14:30:00.000Z"))
