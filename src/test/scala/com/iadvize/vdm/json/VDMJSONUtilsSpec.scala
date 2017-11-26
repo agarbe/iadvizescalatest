@@ -18,4 +18,19 @@ class VDMJSONUtilsSpec extends FlatSpec with Matchers {
     //Then
     assert(jsonPosts == "[{\"author\":\"author\",\"date\":\"2017-11-25T14:30:00Z\",\"content\":\"content\"},{\"author\":\"author\",\"date\":\"2017-11-25T14:30:00Z\",\"content\":\"content\"}]")
   }
+
+  "A json array containing 2 posts" should "be converted in a VDMPost list of 2 elements" in {
+
+    //Given
+    val jsonPosts = "[{\"author\":\"author\",\"date\":\"2017-11-25T14:30:00Z\",\"content\":\"content\"},{\"author\":\"author\",\"date\":\"2017-11-25T14:30:00Z\",\"content\":\"content\"}]"
+
+    //When
+    val posts = VDMJSONUtils.fromJSON(jsonPosts)
+
+    //Then
+    assert (posts.length == 2)
+  }
+
+
+
 }
