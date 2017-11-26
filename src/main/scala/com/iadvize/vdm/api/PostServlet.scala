@@ -24,4 +24,13 @@ class PostServlet extends ScalatraServlet {
     VDMJSONUtils.toJSON(VDMPostSearcher.search(posts, author, from, to))
 
   }
+
+  get("/api/posts/:id") {
+
+    val post = VDMPostSearcher.findById(posts, params.get("id").get.toInt)
+
+    if (post.isDefined) Ok(VDMJSONUtils.toJSON(post.get)) else NotFound("Not found")
+
+  }
+
 }

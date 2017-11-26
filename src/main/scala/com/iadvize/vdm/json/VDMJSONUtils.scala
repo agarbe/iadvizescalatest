@@ -9,6 +9,8 @@ object VDMJSONUtils {
 
   def toJSON(posts: List[VDMPost]): String = write(("posts",posts))
 
+  def toJSON(post: VDMPost): String = write(("post",post))
+
   def fromJSON(jsonPosts: String): List[VDMPost] = read[Tuple2[String,List[VDMPost]]](jsonPosts)._2
 
 
