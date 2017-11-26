@@ -1,5 +1,6 @@
 package com.iadvize.vdm.scrapper
 
+import com.typesafe.scalalogging.Logger
 import net.ruippeixotog.scalascraper.browser.JsoupBrowser
 import net.ruippeixotog.scalascraper.dsl.DSL._
 import net.ruippeixotog.scalascraper.scraper.ContentExtractors.elementList
@@ -10,6 +11,9 @@ import net.ruippeixotog.scalascraper.scraper.ContentExtractors.elementList
 class VDMPageParser(postParser: VDMPostParser) {
 
   var browser = JsoupBrowser()
+
+  private val logger = Logger[VDMPageParser]
+
 
   /**
     * Parse a VDM page looking for posts and return them as a list of [[VDMPost]]
@@ -28,7 +32,7 @@ class VDMPageParser(postParser: VDMPostParser) {
         Some(postParser.parse(post))
       } catch {
         case e:
-          Exception => println
+          Exception => logger.info("Unparsable post")
           None
       }
     )
