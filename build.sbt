@@ -4,11 +4,11 @@ import sbt.Keys.libraryDependencies
 lazy val root = (project in file(".")).
   settings(
     inThisBuild(List(
-      organization := "com.example",
+      organization := "com.iadvize",
       scalaVersion := "2.12.3",
       version := "0.1.0-SNAPSHOT"
     )),
-    name := "Hello",
+    name := "IadvizeScalaTest",
     libraryDependencies += scalaTest % Test,
     libraryDependencies += "org.scalamock" % "scalamock_2.12" % "4.0.0" % Test,
     libraryDependencies += "net.ruippeixotog" %% "scala-scraper" % "2.0.0",
