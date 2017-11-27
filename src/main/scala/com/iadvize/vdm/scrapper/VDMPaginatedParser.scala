@@ -1,9 +1,13 @@
 package com.iadvize.vdm.scrapper
 
+import com.typesafe.scalalogging.Logger
+
 /**
   * Retreive a fixed number of http://www.viedemerde.fr posts by parsing as many pages as necessary
   */
 class VDMPaginatedParser(pageParser: VDMPageParser) {
+
+  private val logger = Logger[VDMPaginatedParser]
 
   /**
     * Parse as many VDM pages as necessary in order to reach the expected post count
@@ -17,6 +21,7 @@ class VDMPaginatedParser(pageParser: VDMPageParser) {
     var currentPage = 1
 
     while (posts.length < expectedPostCount) {
+      logger.debug("Parsing page " + currentPage)
       posts ++= pageParser.parsePage("http://www.viedemerde.fr/?page=" + currentPage)
       currentPage += 1
     }
