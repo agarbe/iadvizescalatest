@@ -1,7 +1,7 @@
 
 import javax.servlet.ServletContext
 
-import com.example.app.PostServlet
+import com.iadvize.vdm.api.PostServlet
 import org.scalatra._
 
 class ScalatraBootstrap extends LifeCycle {

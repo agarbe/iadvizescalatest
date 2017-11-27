@@ -1,6 +1,5 @@
-package com.example.app
+package com.iadvize.vdm.api
 
-import com.iadvize.vdm.api.VDMPostSearcher
 import com.iadvize.vdm.json.VDMJSONUtils
 import org.joda.time.DateTime
 import org.scalatra._
