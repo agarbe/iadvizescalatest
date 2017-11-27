@@ -14,7 +14,9 @@ class VDMPostParser {
 
   private val postAuthorAndDatePattern = "^Par (.*) -.*/ (.*) /.*$".r
 
-  private val postDateFormat = DateTimeFormat.forPattern("EEE dd MMMM yyyy HH:mm").withLocale(java.util.Locale.FRENCH)
+  private val postDateFormat = DateTimeFormat.forPattern("EEE dd MMMM yyyy HH:mm")
+    .withLocale(java.util.Locale.FRENCH)
+    .withZone(DateTimeZone.forID("Europe/Paris"))
 
   /**
     * Takes an article element wrapping a VDM post and return a [[VDMPost]]

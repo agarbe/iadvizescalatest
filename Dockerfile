@@ -4,4 +4,4 @@ ADD . /app
 
 WORKDIR /app
 
-RUN sbt "set test in assembly := {}" clean assembly
+RUN sbt clean assembly
