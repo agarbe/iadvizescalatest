@@ -7,5 +7,9 @@ The application will fetch the 200 first posts of http://www.viedemerde.fr, stor
 and expose them through a REST API backed by scalatra
 
 The project is built with SBT and comes with a scalatest test suite.
+Main entry points are:
+- com.iadvize.vdm.scrapper.VDMSiteScrapper for the site scrapper
+- com.iadvize.vdm.api.PostServlet for the REST API
+
 
 Enjoy ;)
